@@ -11,7 +11,7 @@ user's complain again because they simply forget the password ;(
 ## What is 
 
 The objective of this library is in fact, to provide a new friendly user interface to request the user's passwords. Keeping the simplicity and accessibility as 
-first goal, by using the combination of classic Chess boards and the chess pieces, the classic password characters, we achieve a very high percent of success; 
+first goal, by using the combination of Chess boards, chess pieces and the classic password characters, we achieve a very high chance of success; 
 even IT novice users will be able to generate complex passwords, quite accidentally.
 
 ## The goal
