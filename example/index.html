@@ -27,7 +27,7 @@
 				position: 'start',
 				readSquarePwd: function (aBoard, aSquare) {
 					var lPwd = prompt("Enter password:", aBoard.passwords[aSquare.attr('data-square')]);
-					if ("" != lPwd) {
+					if (lPwd) {
 						aBoard.passwords[aSquare.attr('data-square')] = lPwd;
 					} else {
 						aBoard.passwords[aSquare.attr('data-square')] = "";
