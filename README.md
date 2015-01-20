@@ -4,7 +4,7 @@
 ## Introduction
 
 Common IT users complain and suffer the fact of not using strong passwords to protect their private data services account... One, because strong passwords (upper, lower, numbers, special chars)
-are simply hard to remember for non IT experienced persons, second, the authentication interface of the majority of Internet services only offer the traditional "enter password box".
+are simply hard to remember for non IT experienced persons, second, the authentication interface of the majority of Internet services only offer the traditional "enter password text box".
 Some services started to complain about the weakness of user's passwords and force users to introduce "not so weak passwords"..., 
 user's complain again because they simply forget the password ;(
 
@@ -25,7 +25,7 @@ talking about >= 64 length passwords, that the users will extended, having 64 "s
 
 ## The library
 
-The library "chess-characters-pwd", is the result of an extension of the chessboardjs (http://chessboardjs.com/) library. Suppose to be to the interface for 
+The library "chess-characters-pwd", is the result of an extension of the chessboardjs (http://chessboardjs.com/) library. Suppose to be the interface for 
 requesting the user's passwords in the future encrypted social network: youcrypted.com
 
 
