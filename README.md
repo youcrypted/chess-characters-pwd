@@ -76,5 +76,8 @@ The library depends of the following third-party libraries:
 - http://jquery.com/
 
 
+## Live Demo
+
+- http://youcrypted.github.io/chess-chars-pwd/example/
 
 
