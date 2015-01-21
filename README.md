@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Common IT users complain and suffer the fact of not using strong passwords to protect their private data services account... One, because strong passwords (upper, lower, numbers, special chars)
+Common IT users complain and suffer the fact of not using strong passwords to protect their private data services accounts... One, because strong passwords (upper, lower, numbers, special chars)
 are simply hard to remember for non IT experienced persons, second, the authentication interface of the majority of Internet services only offer the traditional "enter password text box".
 Some services started to complain about the weakness of user's passwords and force users to introduce "not so weak passwords"..., 
 user's complain again because they simply forget the password ;(
