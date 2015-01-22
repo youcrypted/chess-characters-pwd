@@ -25,8 +25,8 @@ talking about >= 64 length passwords, that the users will extended, having 64 "s
 
 ### Computational complexity (worse case)
 
-C = Number of printable characters. Normal ASCII contains 95.
-P = Number of chess pieces (including the blank square), 13.
+>C = Number of printable characters. Normal ASCII contains 95.
+> P = Number of chess pieces (including the blank square), 13.
 
 Possible combinations:
 
@@ -36,7 +36,8 @@ Possible combinations:
 - (P + (C)^N)^64: Where N is the biggest length of the content per square. For example if you use: "Mom", "1", "LoveU", divided into 3 squares, 
 then N = 4 ("Love"). Remember that you also can combine chess pieces and printable characters as square content.
 
-Yes, we have (13 + (95)^N)^64 possible combinations with the normal ASCII code.
+>Yes, we have (13 + (95)^N)^64 possible combinations with the normal ASCII code.
+
 Of course, the strength of the generated password depends of the ability of the user to combine and remember "content" in multiple squares.
 
 ## The library
