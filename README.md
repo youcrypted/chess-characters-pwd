@@ -25,8 +25,8 @@ talking about >= 64 length passwords, that the users will extended, having 64 "s
 
 ### Computational complexity (worse case)
 
->C = Number of printable characters. Normal ASCII contains 95.
-> P = Number of chess pieces (including the blank square), 13.
+- C = Number of printable characters. Normal ASCII contains 95.
+- P = Number of chess pieces (including the blank square), 13.
 
 Possible combinations:
 
