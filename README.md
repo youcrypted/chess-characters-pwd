@@ -14,7 +14,7 @@ The objective of this library is in fact, to provide a new friendly user interfa
 first goal, by using the combination of Chess boards, chess pieces and the classic password characters, we achieve a very high chance of success; 
 even IT novice users will be able to generate complex passwords, quite accidentally.
 
-## The goal
+## Impact 
 
 The proposed "password generation interface", result in a very strong challenge for existing brute-force attack methods. >= 64 length passwords are always generated and the complexity
 becomes exponential even for pretty simple combinations.
@@ -22,6 +22,22 @@ becomes exponential even for pretty simple combinations.
 If we talk about numbers, we have 13^64 combinations only for the chess pieces (including the blank squares). Then if we consider that the user can introduce characters in every square 
 (255^N, where N is the length of each password chunk), generate all the possible combinations becomes really prohibitive. The silver bullet appear because we are always 
 talking about >= 64 length passwords, that the users will extended, having 64 "squares" to decide ;)
+
+### Computational complexity (worse case)
+
+C = Number of printable characters. Normal ASCII contains 95.
+P = Number of chess pieces (including the blank square), 13.
+
+Possible combinations:
+
+- (P)^64: If you only use the chess game pieces.
+- (C)^64: If you only use 1 character per square.
+- (P + C)^64: If you combine the chess pieces and the printable characters, but keeping the square's content, to only 1 element of the alphabet.
+- (P + (C)^N)^64: Where N is the biggest length of the content per square. For example if you use: "Mom", "1", "LoveU", divided into 3 squares, 
+then N = 4 ("Love"). Remember that you also can combine chess pieces and printable characters as square content.
+
+Yes, we have (13 + (95)^N)^64 possible combinations with the normal ASCII code.
+Of course, the strength of the generated password depends of the ability of the user to combine and remember "content" in multiple squares.
 
 ## The library
 
