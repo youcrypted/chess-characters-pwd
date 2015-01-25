@@ -67,6 +67,10 @@ requesting the user's passwords in the future encrypted social network: youcrypt
 					} else {
 						aBoard.passwords[aSquare.attr('data-square')] = "";
 					}
+				},
+				hash: function (aPwd) {
+					// password hashing function generation
+					return CryptoJS.SHA512(aPwd).toString(CryptoJS.enc.Base64);
 				}
 			});
 
@@ -89,7 +93,6 @@ requesting the user's passwords in the future encrypted social network: youcrypt
 
 The library depends of the following third-party libraries:
 - https://github.com/oakmac/chessboardjs/
-- https://code.google.com/p/crypto-js/
 - http://jquery.com/
 
 

@@ -32,6 +32,9 @@
 					} else {
 						aBoard.passwords[aSquare.attr('data-square')] = "";
 					}
+				},
+				hash: function (aPwd) {
+					return CryptoJS.SHA512(aPwd).toString(CryptoJS.enc.Base64);
 				}
 			});
 

@@ -23,7 +23,7 @@ ChessCharsPwdBoard = function (aBoardDivId, aConfig) {
 			}
 		}
 
-		return CryptoJS.SHA512(lPwd).toString(CryptoJS.enc.Base64);
+		return aConfig.hash(lPwd);
 	};
 	lBoard.passwords = {};
 
