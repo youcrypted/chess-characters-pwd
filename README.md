@@ -69,7 +69,7 @@ requesting the user's passwords in the future encrypted social network: youcrypt
 					}
 				},
 				hash: function (aPwd) {
-					// password hashing function generation
+					// custom password hashing function
 					return CryptoJS.SHA512(aPwd).toString(CryptoJS.enc.Base64);
 				}
 			});
