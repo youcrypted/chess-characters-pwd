@@ -3,10 +3,9 @@
 
 ## Introduction
 
-Common IT users complain and suffer the fact of not using strong passwords to protect their private data services accounts... One, because strong passwords (upper, lower, numbers, special chars)
-are simply hard to remember for non IT experienced persons, second, the authentication interface of the majority of Internet services only offer the traditional "enter password text box".
-Some services started to complain about the weakness of user's passwords and started to force users to introduce "not so weak passwords"..., 
-user's suffer again because they simply forget the password ;(
+Common IT users complain and suffer the fact of not using strong passwords to protect their private data, services accounts... 
+The main reason is because strong passwords (upper, lower, numbers, special chars) are simply hard to remember for non IT experienced persons. In the other hand, the authentication interface of the majority of Internet services only offer the traditional "enter password text box".
+Some services started to require strong user passwords but then, users can't remember those passwords. 
 
 ## What is 
 
@@ -34,7 +33,7 @@ Possible combinations:
 - (C)^64: If you only use 1 character per square.
 - (P + C)^64: If you combine the chess pieces and the printable characters, but keeping the square's content, to only 1 element of the alphabet.
 - (P + (C)^N)^64: Where N is the biggest length of the content per square. For example if you use: "Mom", "1", "LoveU", divided into 3 squares, 
-then N = 4 ("Love"). Remember that you also can combine chess pieces and printable characters as square content.
+then N = 5 ("LoveU"). Remember that you also can combine chess pieces and printable characters as square content.
 
 >Yes, we have (13 + (95)^N)^64 possible combinations with the normal ASCII code.
 
