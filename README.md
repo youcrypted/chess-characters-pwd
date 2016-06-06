@@ -1,5 +1,5 @@
 # chess-characters-pwd
-> Library that allows to create strong user's passwords by using the combination of chess board, pieces and the traditional password characters.
+> Library that allows to create strong user passwords by using the combination of a  chess board, its pieces and the traditional text based passwords.
 
 ## Introduction
 
