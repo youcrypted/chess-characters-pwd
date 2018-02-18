@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html><head>
-		<title>Chess and Characters Password Generation Example</title>
-		<link rel="stylesheet" href="http://chessboardjs.com/css/chessboard.css">
-	</head>
-	<body>
+<html>
+
+<head>
+	<title>Chess and Characters Password Generation Example</title>
+	<link rel="stylesheet" href="http://chessboardjs.com/css/chessboard.css">
+</head>
+
+<body>
 	<center>
 		<div id="board" style="width: 280px"></div>
 		<input type="button" id="startBtn" value="Init board" />
 		<input type="button" id="clearBtn" value="Clear board" />
 		<input type="button" id="pwdBtn" value="Get Password" />
 	</center>
-	<script src="http://chessboardjs.com/js/json3.min.js"></script>
 	<script src="http://chessboardjs.com/js/jquery-1.10.1.min.js"></script>
-	<script src="http://chessboardjs.com/js/chessboard.js"></script>
+	<script src="chessboardjs-0.3.0/js/chessboard-0.3.0.min.js"></script>
 	<script src="sha512.js"></script>
 	<script src="../ChessCharsPwdBoard.js"></script>
 	<script src="enc-base64-min.js"></script>
@@ -23,7 +25,7 @@
 				draggable: true,
 				dropOffBoard: 'trash',
 				sparePieces: true,
-				pieceTheme: 'http://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png',
+				pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
 				position: 'start',
 				readSquarePwd: function (aBoard, aSquare) {
 					var lPwd = prompt("Enter password:", aBoard.passwords[aSquare.attr('data-square')]);
@@ -51,4 +53,5 @@
 		$(document).ready(init);
 	</script>
 </body>
+
 </html>
