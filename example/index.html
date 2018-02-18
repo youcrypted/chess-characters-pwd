@@ -19,24 +19,23 @@
 	<script src="../ChessCharsPwdBoard.js"></script>
 	<script src="enc-base64-min.js"></script>
 	<script>
-		var init = function () {
-
-			var board = ChessCharsPwdBoard('board', {
+		const init = () => {
+			const board = ChessCharsPwdBoard('board', {
 				draggable: true,
 				dropOffBoard: 'trash',
 				sparePieces: true,
 				pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
 				position: 'start',
-				readSquarePwd: function (aBoard, aSquare) {
-					var lPwd = prompt("Enter password:", aBoard.passwords[aSquare.attr('data-square')]);
-					if (lPwd) {
-						aBoard.passwords[aSquare.attr('data-square')] = lPwd;
+				readSquarePwd: (board, square) => {
+					const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
+					if (pwd) {
+						board.passwords[square.attr('data-square')] = pwd;
 					} else {
-						aBoard.passwords[aSquare.attr('data-square')] = "";
+						board.passwords[square.attr('data-square')] = "";
 					}
 				},
-				hash: function (aPwd) {
-					return CryptoJS.SHA512(aPwd).toString(CryptoJS.enc.Base64);
+				hash: (pwd) => {
+					return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
 				}
 			});
 

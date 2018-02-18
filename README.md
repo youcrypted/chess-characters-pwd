@@ -34,44 +34,37 @@ The library "chess-characters-pwd" is implemented as a plugin for the chessboard
 ## How to
 
 ```js
-	<script>
-		var init = function () {
+const init = () => {
+	const board = ChessCharsPwdBoard('board', {
+		draggable: true,
+		dropOffBoard: 'trash',
+		sparePieces: true,
+		pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
+		position: 'start',
+		readSquarePwd: (board, square) => {
+			const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
+			if (pwd) {
+				board.passwords[square.attr('data-square')] = pwd;
+			} else {
+				board.passwords[square.attr('data-square')] = "";
+			}
+		},
+		hash: (pwd) => {
+			return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
+		}
+	});
 
-			var board = ChessCharsPwdBoard('board', {
-				draggable: true,
-				dropOffBoard: 'trash',
-				sparePieces: true,
-				pieceTheme: 'images/pieces/{piece}.png',
-				position: 'start',
-				readSquarePwd: function (aBoard, aSquare) {
-					// replace by app specific password dialog
-					// this is just a demo
-					var lPwd = prompt("Enter password:", aBoard.passwords[aSquare.attr('data-square')]);
-					if ("" != lPwd) {
-						aBoard.passwords[aSquare.attr('data-square')] = lPwd;
-					} else {
-						aBoard.passwords[aSquare.attr('data-square')] = "";
-					}
-				},
-				hash: function (aPwd) {
-					// custom password hashing function
-					return CryptoJS.SHA512(aPwd).toString(CryptoJS.enc.Base64);
-				}
-			});
+	$('#startBtn').on('click', board.start);
+	$('#clearBtn').on('click', function () {
+		board.passwords = {};
+		board.clear();
+	});
+	$('#pwdBtn').on('click', function () {
+		alert(board.getPwd());
+	});
 
-			$('#startBtn').on('click', board.start);
-			$('#clearBtn').on('click', function () {
-				board.passwords = {};
-				board.clear();
-			});
-			$('#pwdBtn').on('click', function () {
-				alert(board.getPwd());
-			});
-
-		};
-
-		$(document).ready(init);
-	</script>
+};
+$(document).ready(init);
 ```
 
 ## Dependencies
