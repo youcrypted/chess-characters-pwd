@@ -1,37 +1,38 @@
 /*
  * ChessCharsPwdBoard JavaScript library
  * https://github.com/youcrypted/chess-characters-pwd
- * (c) 2015 by Rolando SM. All rights reserved.
+ * 
+ * License
  * http://www.apache.org/licenses/LICENSE-2.0
  */
-ChessCharsPwdBoard = function (aBoardDivId, aConfig) {
-	var lBoard = new ChessBoard(aBoardDivId, aConfig);
-	lBoard.getPwd = function () {
-		var lColumns = ["a", "b", "c", "d", "e", "f", "g", "h"];
-		var lPosition = lBoard.position();
-		var lPwd = "";
+const ChessCharsPwdBoard = function (boardDivId, config) {
+	const board = new ChessBoard(boardDivId, config);
+	board.getPwd = () => {
+		const columns = ["a", "b", "c", "d", "e", "f", "g", "h"];
+		const position = board.position();
+		let pwd = "";
 
-		for (var lI = 0; lI < 8; lI++) {
-			for (var lJ = 0; lJ < 8; lJ++) {
-				var lKey = lColumns[lI] + (lJ + 1);
-				var lSquareContent = lPosition[lKey];
-				if (typeof lBoard.passwords[lKey] == 'string' && lBoard.passwords[lKey].length > 0) {
-					lSquareContent += lBoard.passwords[lKey];
+		for (let i = 0; i < 8; i++) {
+			for (let j = 0; j < 8; j++) {
+				const key = columns[i] + (j + 1);
+				let squareContent = position[key];
+				if (typeof board.passwords[key] == 'string' && board.passwords[key].length > 0) {
+					squareContent += board.passwords[key];
 				}
 
-				lPwd = lPwd + ((lSquareContent) ? lSquareContent : "K"); //k from kyberneees
+				pwd = pwd + ((squareContent) ? squareContent : "K"); //k from kyberneees ;)
 			}
 		}
 
-		return aConfig.hash(lPwd);
+		return config.hash(pwd);
 	};
-	lBoard.passwords = {};
+	board.passwords = {};
 
-	$("#" + aBoardDivId + " div[class^='square']").each(function (i, aEl) {
-		$(aEl).click(function () {
-			aConfig.readSquarePwd(lBoard, $(aEl));
+	$("#" + boardDivId + " div[class^='square']").each(function (i, el) {
+		$(el).click(function () {
+			config.readSquarePwd(board, $(el));
 		});
 	});
 
-	return lBoard;
+	return board;
 };
