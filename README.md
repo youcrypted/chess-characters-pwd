@@ -1,6 +1,8 @@
 # chess-characters-pwd
 This JavaScript library allows the creation of super strong user passwords by using the combination of a chess board, its pieces and the traditional text based passwords.
 
+Demo: https://files-rumimbtkjx.now.sh/ 
+
 ## Motivation
 Internet users are affected by the fact of not using strong passwords to protect their private data, services accounts... 
 The main reason is because strong passwords(upper, lower, numbers, special chars) are simply hard to remember by inexperienced users. 
