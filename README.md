@@ -38,22 +38,22 @@ The library "chess-characters-pwd" is implemented using the chessboardjs (http:/
 ```js
 const init = () => {
   const board = ChessCharsPwdBoard('board', {
-	draggable: true,
-	dropOffBoard: 'trash',
-	sparePieces: true,
-	pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
-	position: 'start',
-	readSquarePwd: (board, square) => {
-		const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
-		if (pwd) {
-		board.passwords[square.attr('data-square')] = pwd;
-		} else {
-		board.passwords[square.attr('data-square')] = "";
-		}
-	},
-	hash: (pwd) => {
-		return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
-	}
+    draggable: true,
+    dropOffBoard: 'trash',
+    sparePieces: true,
+    pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
+    position: 'start',
+    readSquarePwd: (board, square) => {
+      const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
+      if (pwd) {
+        board.passwords[square.attr('data-square')] = pwd;
+      } else {
+        board.passwords[square.attr('data-square')] = "";
+      }
+    },
+    hash: (pwd) => {
+      return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
+    }
   });
 
   $('#startBtn').on('click', board.start);
