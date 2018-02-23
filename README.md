@@ -11,9 +11,9 @@ The main reason is because strong passwords(upper, lower, numbers, special chars
 The library aims to provide a new friendly user interface to request passwords. Keeping the simplicity and accessibility as first goal, by using the combination of Chess boards, chess pieces and the classic password characters, users will create their strongest password ever. 
 
 ## Impact 
-The proposed "password generation interface", disable the possibility of any brute-force attack method. >= 64 length passwords are always generated and the complexity becomes exponential even for the those basics combinations.
+The proposed "password generation interface", disable the possibility of any brute-force attack method. >= 64 length passwords are always generated and the complexity becomes exponential even for basic combinations.
 
-In concrete, there are 13^64 password combinations only for the chess pieces (including the blank squares). Then, if we consider that the user can introduce characters in every square (95^N, where N is the length of each password chunk).
+In concrete, there are 13^64 password combinations only for the chess pieces (including the blank squares). Then, if we consider that the user can introduce characters in every square (95^N, where N is the length of each password chunk per square).
 
 ### Computational complexity (worse case)
 
@@ -31,40 +31,39 @@ Possible combinations:
 The strength of the generated password depends of the ability of the user to combine and remember "content" in multiple squares.
 
 ## The library
-The library "chess-characters-pwd" is implemented as a plugin for the chessboardjs (http://chessboardjs.com/) library. 
+The library "chess-characters-pwd" is implemented using the chessboardjs (http://chessboardjs.com/) library as base, however it can be easily ported to other chess libraries, even to other kind of games. 
 
 ## How to
 
 ```js
 const init = () => {
-	const board = ChessCharsPwdBoard('board', {
-		draggable: true,
-		dropOffBoard: 'trash',
-		sparePieces: true,
-		pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
-		position: 'start',
-		readSquarePwd: (board, square) => {
-			const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
-			if (pwd) {
-				board.passwords[square.attr('data-square')] = pwd;
-			} else {
-				board.passwords[square.attr('data-square')] = "";
-			}
-		},
-		hash: (pwd) => {
-			return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
+  const board = ChessCharsPwdBoard('board', {
+	draggable: true,
+	dropOffBoard: 'trash',
+	sparePieces: true,
+	pieceTheme: 'chessboardjs-0.3.0/img/chesspieces/wikipedia/{piece}.png',
+	position: 'start',
+	readSquarePwd: (board, square) => {
+		const pwd = prompt("Enter password:", board.passwords[square.attr('data-square')]);
+		if (pwd) {
+		board.passwords[square.attr('data-square')] = pwd;
+		} else {
+		board.passwords[square.attr('data-square')] = "";
 		}
-	});
+	},
+	hash: (pwd) => {
+		return CryptoJS.SHA512(pwd).toString(CryptoJS.enc.Base64);
+	}
+  });
 
-	$('#startBtn').on('click', board.start);
-	$('#clearBtn').on('click', function () {
-		board.passwords = {};
-		board.clear();
-	});
-	$('#pwdBtn').on('click', function () {
-		alert(board.getPwd());
-	});
-
+  $('#startBtn').on('click', board.start);
+  $('#clearBtn').on('click', function () {
+    board.passwords = {};
+    board.clear();
+  });
+  $('#pwdBtn').on('click', function () {
+    alert(board.getPwd());
+  });
 };
 $(document).ready(init);
 ```
